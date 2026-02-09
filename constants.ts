@@ -1,4 +1,4 @@
-export const APP_TITLE = "Plan de Inversión Creciente Contigo Futuro";
+export const APP_TITLE = "Contigo Futuro | Simulador de Ahorro e Inversión";
 
 // Annual return rates (estimated for simulation)
 export const RATES = {
@@ -10,7 +10,7 @@ export const RATES = {
 export const COPY = {
   hero: {
     title: "¿Cuánto valdrán tus ahorros en 20 años?",
-    subtitle: "Descubre la diferencia entre ahorrar en el banco e invertir con interés compuesto y ventajas fiscales. Maximiza tu capital.",
+    subtitle: "Compara lo que ocurre con tu dinero en una cuenta bancaria frente a invertirlo con Contigo Futuro: gestión profesional ESG, capital protegido al 80% y ventajas fiscales al rescatar.",
     cta: "Calcular mi Proyección"
   },
   inputs: {
@@ -20,8 +20,8 @@ export const COPY = {
   },
   gate: {
     title: "Análisis completado",
-    subtitle: "Hemos calculado la proyección de rentabilidad y el impacto fiscal. Completa tu perfil para desbloquear el informe detallado.",
-    disclaimer: "Información confidencial. Tus datos se usan exclusivamente para generar tu plan."
+    subtitle: "Hemos calculado la proyección de tu plan Contigo Futuro. Completa tu perfil para desbloquear el informe detallado.",
+    disclaimer: "Información confidencial. Tus datos se usan exclusivamente para generar tu plan personalizado con Nationale-Nederlanden."
   },
   results: {
     tabFinancial: "Comparativa Patrimonial",

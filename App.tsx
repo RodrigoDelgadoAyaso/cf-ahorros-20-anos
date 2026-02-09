@@ -69,9 +69,9 @@ const App: React.FC = () => {
       
       <div className="grid md:grid-cols-3 gap-6 w-full text-left">
         {[
-          { icon: Coins, title: "Interés Compuesto", desc: "Haz que los beneficios generen más beneficios automáticamente." },
-          { icon: Landmark, title: "Eficiencia Fiscal", desc: "Diferimiento fiscal para maximizar tu rentabilidad neta." },
-          { icon: PieChart, title: "Gestión Profesional", desc: "Carteras diversificadas gestionadas por expertos globales." },
+          { icon: ShieldCheck, title: "Capital Protegido al 80%", desc: "Garantía diaria y creciente: si el mercado sube, tu capital garantizado sube y nunca vuelve a bajar." },
+          { icon: PieChart, title: "Inversión Responsable (ESG)", desc: "Tu dinero gestionado activamente por Amundi con criterios ambientales, sociales y de gobernanza." },
+          { icon: Landmark, title: "Protección Familiar", desc: "Incluye seguro de vida (+3.000 €) y cobertura por invalidez permanente absoluta." },
         ].map((feat, i) => (
           <div key={i} className="bg-[#F9FAFB] p-6 rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
             <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-[#FF7A00] shadow-sm mb-4">
@@ -88,50 +88,52 @@ const App: React.FC = () => {
   const renderInputs = () => (
     <div className="max-w-xl mx-auto py-12 px-6">
       <div className="mb-10 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-2">Diseña tu futuro financiero</h2>
-        <p className="text-gray-500">Ajusta tu capacidad de ahorro para ver el potencial.</p>
+        <h2 className="text-3xl font-bold text-gray-900 mb-2">Personaliza tu plan Contigo Futuro</h2>
+        <p className="text-gray-500">Necesitamos estos datos para proyectar cómo crecería tu inversión hasta los 65 años.</p>
       </div>
 
       <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-        <SliderInput 
+        <SliderInput
           label="Tu Edad"
           value={userInput.age}
           min={25}
           max={60}
           step={1}
           unit="años"
+          helperText="Determina tu horizonte de inversión hasta los 65 años: a más años, mayor potencial de crecimiento."
           onChange={(v) => setUserInput({...userInput, age: v})}
         />
 
-        <SliderInput 
+        <SliderInput
           label="Capital Inicial Disponible"
           value={userInput.initialInvestment}
           min={0}
           max={100000}
           step={1000}
           unit="€"
-          helperText="Dinero que podrías traspasar o invertir hoy mismo."
+          helperText="¿Tienes ahorros en cuenta o depósitos que podrías mover a una inversión con mayor potencial?"
           onChange={(v) => setUserInput({...userInput, initialInvestment: v})}
         />
 
-        <SliderInput 
+        <SliderInput
           label="Ahorro Mensual"
           value={userInput.monthlyContribution}
-          min={100}
+          min={75}
           max={3000}
-          step={50}
+          step={25}
           unit="€"
-          helperText="Aportación periódica flexible."
+          helperText="Contigo Futuro permite aportaciones desde 75 €/mes. Puedes modificarlas o hacer extras cuando quieras."
           onChange={(v) => setUserInput({...userInput, monthlyContribution: v})}
         />
 
         <div className="mb-8">
-          <label className="text-lg font-semibold text-gray-900 mb-3 block">Estrategia de Inversión</label>
+          <label className="text-lg font-semibold text-gray-900 mb-3 block">¿Con qué escenario te identificas?</label>
+          <p className="text-sm text-gray-500 mb-3">Comparamos tu elección con dejar el dinero en el banco al tipo actual (~2%).</p>
           <div className="grid grid-cols-3 gap-3">
             {[
-              { id: 'conservative', label: 'Conservadora', desc: 'Baja Volatilidad' },
-              { id: 'balanced', label: 'Equilibrada', desc: 'Crecimiento/Riesgo' },
-              { id: 'dynamic', label: 'Dinámica', desc: 'Máximo Retorno' }
+              { id: 'conservative', label: 'Prudente', desc: 'Priorizo seguridad' },
+              { id: 'balanced', label: 'Equilibrado', desc: 'Seguridad + Crecimiento' },
+              { id: 'dynamic', label: 'Decidido', desc: 'Priorizo rentabilidad' }
             ].map((p) => (
               <button
                 key={p.id}
@@ -165,8 +167,8 @@ const App: React.FC = () => {
         <div className="absolute inset-0 border-4 border-[#FF7A00] rounded-full border-t-transparent animate-spin"></div>
         <Coins className="absolute inset-0 m-auto text-[#FF7A00]" size={32} />
       </div>
-      <h2 className="text-2xl font-bold text-gray-900 mb-2">Optimizando cartera...</h2>
-      <p className="text-gray-500">Analizando fondos, costes y ventajas fiscales.</p>
+      <h2 className="text-2xl font-bold text-gray-900 mb-2">Calculando tu proyección...</h2>
+      <p className="text-gray-500">Comparando cuenta bancaria vs. Contigo Futuro con tu perfil.</p>
     </div>
   );
 
@@ -313,7 +315,7 @@ const App: React.FC = () => {
                  <div className="flex justify-between items-center mb-6">
                   <h3 className="font-bold text-lg flex items-center gap-2">
                     <Coins size={20} className="text-[#FF7A00]" />
-                    Poder del Interés Compuesto
+                    Rendimiento de tu Inversión
                   </h3>
                   <div className="text-right">
                     <div className="text-xs text-gray-500">Beneficio Generado</div>
@@ -351,12 +353,12 @@ const App: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-4">
              <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                <h4 className="font-bold mb-2 text-gray-900">Sin ataduras</h4>
-                <p className="text-sm text-gray-500">Liquidez total o parcial cuando lo necesites. Tu dinero es tuyo, sin esperar a la jubilación forzosa.</p>
+                <h4 className="font-bold mb-2 text-gray-900">Liquidez tras el primer año</h4>
+                <p className="text-sm text-gray-500">Después del primer año puedes hacer rescates parciales (hasta el 30%) o totales. Tu dinero es accesible.</p>
              </div>
              <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
-                <h4 className="font-bold mb-2 text-gray-900">Ventaja Fiscal</h4>
-                <p className="text-sm text-gray-500">Si decides convertir el capital en renta vitalicia, puedes disfrutar de exenciones fiscales masivas.</p>
+                <h4 className="font-bold mb-2 text-gray-900">Diferimiento Fiscal</h4>
+                <p className="text-sm text-gray-500">Solo tributas cuando rescatas, no durante la vida del plan. Tu dinero crece sin peajes fiscales intermedios.</p>
              </div>
           </div>
         </div>
@@ -366,16 +368,14 @@ const App: React.FC = () => {
           <div className="bg-gray-900 text-white p-6 rounded-2xl sticky top-24 shadow-2xl">
             <h3 className="text-xl font-bold mb-4">Planifica tu Estrategia</h3>
             <p className="text-gray-300 text-sm mb-6">
-              Las calculadoras online son genéricas. Tu situación fiscal y personal es única.
-              <br/><br/>
-              Reserva una sesión gratuita con un experto de NN para revisar cómo optimizar fiscalmente esta proyección.
+              Esta simulación es orientativa. Un asesor de Nationale-Nederlanden puede analizar tu caso concreto y explicarte en detalle las garantías, coberturas y fiscalidad de Contigo Futuro.
             </p>
-            
+
             <ul className="space-y-3 mb-8">
               {[
-                "Análisis de fondos (Amundi, JP Morgan...)",
-                "Estrategia de aportaciones periódicas",
-                "Estudio de ahorro fiscal"
+                "Garantía del 80% con consolidación de ganancias",
+                "Coberturas de vida e invalidez incluidas",
+                "Fiscalidad al rescate y opciones de renta vitalicia"
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-2 text-sm">
                   <CheckCircle2 size={16} className="text-[#FF7A00] mt-0.5" />
